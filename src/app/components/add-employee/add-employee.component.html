@@ -3,18 +3,18 @@
     Agregar Empleado
   </div>
   <div class="card-body">
-    <form (ngSubmit)="sendData()">
+    <form [formGroup]="form_employee" (ngSubmit)="sendData()">
 
       <div class="mb-3">
         <label for="" class="form-label">Nombre</label>
         <input type="text"
-          class="form-control" name="" id="" aria-describedby="helpId" placeholder="Escribe tu nombre">
+          class="form-control" name="" formControlName="nombre" id="" aria-describedby="helpId" placeholder="Escribe tu nombre">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Correo</label>
         <input type="email"
-          class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ingrese su correo">
+          class="form-control" name="" formControlName="correo" id="" aria-describedby="helpId" placeholder="Ingrese su correo">
       </div>
 
       <div class="btn-group" role="group" aria-label="">

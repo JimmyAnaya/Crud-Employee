@@ -13,12 +13,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td> 1</td>
-        <td> Oscar</td>
-        <td> Oscar@gmail.com</td>
+      <tr *ngFor="let employee of Employee; let iControl=index">
+        <td> {{ employee.id}}</td>
+        <td> {{ employee.nombre}}</td>
+        <td> {{ employee.correo}}</td>
         <td>
-          <a routerLink="/edit-employee/1">Editar</a></td>
+          <a class="btn btn-warning" routerLink="/edit-employee/{{employee.id}}">Editar</a> |
+
+         <a class="btn btn-danger" (click)="borrarRegistro(employee.id, iControl)" role="button">Borrar</a>
+
+        </td>
       </tr>
 
     </tbody>

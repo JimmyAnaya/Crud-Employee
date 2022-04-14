@@ -3,17 +3,17 @@
     Editar empleado
   </div>
   <div class="card-body">
-    <form>
+    <form [formGroup]="formEditEmployee">
 
       <div class="mb-3">
         <label for="" class="form-label">Nombre</label>
-        <input type="text"
+        <input formControlName="nombre" type="text"
           class="form-control" name="" id="" aria-describedby="helpId" placeholder="Escribe tu nombre">
       </div>
 
       <div class="mb-3">
         <label for="" class="form-label">Correo</label>
-        <input type="email"
+        <input formControlName="correo" type="email"
           class="form-control" name="" id="" aria-describedby="helpId" placeholder="Ingrese su correo">
       </div>
 
