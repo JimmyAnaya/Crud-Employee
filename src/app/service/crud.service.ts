@@ -27,4 +27,8 @@ export class CrudService {
   ObtenerEmpleado(id: any): Observable<any> {
     return this.client_http.get(this.API + id + '/edit');
   }
+
+  EditarEpleado(dataEmployee: any): Observable<any> {
+    return this.client_http.post(this.API, dataEmployee);
+  }
 }

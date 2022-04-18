@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CrudService } from 'src/app/service/crud.service';
+
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,29 +11,35 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./edit-employee.component.css'],
 })
 export class EditEmployeeComponent implements OnInit {
-  idEmployee: any;
   formEditEmployee: FormGroup;
+  idEmployee: any;
+
   constructor(
     private activeRoute: ActivatedRoute,
     private crudService: CrudService,
-    public form: FormBuilder
+    public formulario: FormBuilder
   ) {
     this.idEmployee = this.activeRoute.snapshot.paramMap.get('id');
     console.log(this.idEmployee);
 
-    this.crudService.ObtenerEmpleado(this.idEmployee).subscribe((response) => {
-      console.log(response);
+    this.crudService.ObtenerEmpleado(this.idEmployee).subscribe((res) => {
+      console.log(res);
       this.formEditEmployee.setValue({
-        nombre: response[0]['nombre'],
-        correo: response[0]['correo'],
+        nombre: 'hola',
+        correo: '1@gmail',
       });
     });
 
-    this.formEditEmployee = this.form.group({
+    this.formEditEmployee = this.formulario.group({
       nombre: [''],
       correo: [''],
     });
   }
 
   ngOnInit(): void {}
+
+  enviarDatos(): any {
+    console.log(this.idEmployee);
+    console.log(this.formEditEmployee.value);
+  }
 }
